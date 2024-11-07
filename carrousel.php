@@ -14,6 +14,18 @@
     - Script permettant d'ouvrir et fermer la boite modale.
     */
 
+/**
+ * Ajoute des fichiers CSS et JavaScript au plugin, avec une gestion de version automatique
+ * basée sur la date de modification de chaque fichier
+ */
+function enfile_css_script(){
+    $version_css = filemtime(plugin_dir_path(__FILE__). "/style.css");
+    $version_js = filemtime(plugin_dir_path(__FILE__). "/js/carrousel.js");
+    wp_enqueue_style("carrousel", plugin_dir_url(__FILE__). "/style.css",  array(), $version_css);
+    wp_enqueue_script("carrousel", plugin_dir_url(__FILE__). "/js/carrousel.js", array(), $version_js);
+}
+add_action("wp_enqueue_scripts", "enfile_css_script");
+
 function genere_carrousel() {
 
     $chaine = '
