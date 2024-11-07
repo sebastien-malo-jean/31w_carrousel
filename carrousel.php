@@ -8,7 +8,7 @@
 
     /*
     Instruction :
-    - généré le code HTML d'une partie de la boite modale
+    - généré le code HTML d'une partie de la boite modale 
     - créé un bourton qui permettra d'ouvrir la boite modale
     - créer une feuille de style pour la boite modale
     - Script permettant d'ouvrir et fermer la boite modale.
