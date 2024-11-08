@@ -10,8 +10,20 @@
   z-index: 2;
 }
 
-.carrousel--ouvrir {
-  transform: scale(1);
+.carrousel__figure {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.carrousel__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
 }
 
 .carrousel__x,
@@ -35,4 +47,12 @@
 
 .carrousel__droite {
   right: -50px;
+}
+
+.carrousel--ouvrir {
+  transform: scale(1);
+}
+
+.carrousel__img--visible {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */
