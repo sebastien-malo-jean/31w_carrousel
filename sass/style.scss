@@ -10,16 +10,29 @@
   z-index: 2;
 }
 
-.carrousel__x {
-  background-color: transparent;
-  color: #f5f5f5;
-  position: absolute;
-  right: -35px;
-  top: -27px;
-  z-index: 4;
-  scale: 1.2;
-}
-
 .carrousel--ouvrir {
   transform: scale(1);
+}
+
+.carrousel__x,
+.carrousel__gauche,
+.carrousel__droite {
+  background-color: rgb(0, 0, 0, 0.6);
+  color: #f5f5f5;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+}
+
+.carrousel__x {
+  right: -50px;
+  top: -42px;
+}
+
+.carrousel__gauche {
+  left: -50px;
+}
+
+.carrousel__droite {
+  right: -50px;
 }

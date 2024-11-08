@@ -31,7 +31,9 @@ function genere_carrousel() {
     $chaine = '
 <button id="carrousel__button" class="carrousel__button">Ouvrir</button>
 <div class="carrousel">
-    <button class="carrousel__x">&#128473</button>
+    <button class="carrousel__x"><img src="https://s2.svgbox.net/materialui.svg?ic=close&color=fff" width="32" height="32"></button>
+    <button class="carrousel__gauche"><img src="https://s2.svgbox.net/materialui.svg?ic=skip_previous&color=fff" width="32" height="32"></button>
+    <button class="carrousel__droite"><img src="https://s2.svgbox.net/materialui.svg?ic=skip_next&color=fff" width="32" height="32"></button>
     <figure class="carrousel__figure"></figure>
     <form class="carrousel__form"></form>
 </div>
