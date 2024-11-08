@@ -7,15 +7,17 @@
   height: 50vw;
   transform: scale(0);
   transition: transform 0.05s ease;
+  z-index: 2;
 }
 
 .carrousel__x {
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: transparent;
   color: #f5f5f5;
   position: absolute;
-  right: -30px;
-  top: -30px;
+  right: -35px;
+  top: -27px;
   z-index: 4;
+  scale: 1.2;
 }
 
 .carrousel--ouvrir {
