@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("test de connection reussi");
+  console.log("Connection reussi plugin Carrousel");
   //----------ÉLÉMENTS RECHERCHERS----------//
   let carrousel = document.querySelector(".carrousel");
   let carrousel__x = document.querySelector(".carrousel__x");
