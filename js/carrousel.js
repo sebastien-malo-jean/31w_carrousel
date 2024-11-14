@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("test de connection reussi");
   //----------ÉLÉMENTS RECHERCHERS----------//
   let carrousel = document.querySelector(".carrousel");
-
-  let carrousel__button = document.getElementById("carrousel__button");
   let carrousel__x = document.querySelector(".carrousel__x");
   let carrousel__droite = document.querySelector(".carrousel__droite");
   let carrousel__gauche = document.querySelector(".carrousel__gauche");
@@ -11,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let carrousel__figure = document.querySelector(".carrousel__figure");
   //   let galerie = document.querySelector(".galerie");
   let galerie__img = document.querySelectorAll(".galerie img");
-  console.log(carrousel__droite, carrousel__gauche);
+  console.log(galerie__img);
 
   //----------FONCTION----------//
   function peuplerCarrousel() {
@@ -23,7 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function afficheImage(index) {
+  function carrousel__trouvePosition() {
+    const carrousel__img = Array.from(
+      document.querySelectorAll(".carrousel__img")
+    );
+
+    let position = carrousel__img.findIndex((img) =>
+      img.classList.contains("carrousel__img--visible")
+    );
+
+    return position;
+  }
+
+  function carrousel__afficheImage(index) {
     let carrousel__img = document.querySelectorAll(".carrousel__img");
 
     for (let i = 0; i < carrousel__img.length; i++) {
@@ -32,55 +42,47 @@ document.addEventListener("DOMContentLoaded", function () {
     carrousel__img[index].classList.add("carrousel__img--visible");
   }
 
-  function trouvePosition() {
+  function carrousel__imageSuivante() {
     const carrousel__img = Array.from(
       document.querySelectorAll(".carrousel__img")
     );
-    let position = carrousel__img.findIndex((img) =>
-      img.classList.contains("carrousel__img--visible")
-    );
-
-    return position;
-  }
-
-  function imageSuivante() {
-    const carrousel__img = Array.from(
-      document.querySelectorAll(".carrousel__img")
-    );
-    let position = trouvePosition();
+    let position = carrousel__trouvePosition();
     if (position < carrousel__img.length - 1) {
       position++;
     }
 
-    afficheImage(position);
+    carrousel__afficheImage(position);
   }
 
-  function imagePrecedente() {
-    let position = trouvePosition();
+  function carrousel__imagePrecedente() {
+    let position = carrousel__trouvePosition();
     if (position >= 1) {
       position--;
     }
-    afficheImage(position);
+    carrousel__afficheImage(position);
   }
 
   //----------ADDEVENTLISTENER----------//
   //addEvent listener sur le bouton pour ouvrir le carrousel
-  carrousel__button.addEventListener("click", () => {
-    if (carrousel__figure.innerHTML == "") {
-      peuplerCarrousel();
-    }
-    afficheImage(0);
-    carrousel.classList.add("carrousel--ouvrir");
+  galerie__img.forEach((img, n) => {
+    img.addEventListener("click", () => {
+      if (carrousel__figure.innerHTML == "") {
+        peuplerCarrousel();
+      }
+      carrousel__afficheImage(n);
+      carrousel.classList.add("carrousel--ouvrir");
+      console.log("Image de la galerie cliquée :" + n);
+    });
   });
-  //addEventListener sur le X du carrousel
+
+  //addEventListener sur les boutons du carrousel
   carrousel__x.addEventListener("click", () => {
     carrousel.classList.remove("carrousel--ouvrir");
   });
-
   carrousel__droite.addEventListener("click", () => {
-    imageSuivante();
+    carrousel__imageSuivante();
   });
   carrousel__gauche.addEventListener("click", () => {
-    imagePrecedente();
+    carrousel__imagePrecedente();
   });
 });
