@@ -5,11 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let carrousel__x = document.querySelector(".carrousel__x");
   let carrousel__droite = document.querySelector(".carrousel__droite");
   let carrousel__gauche = document.querySelector(".carrousel__gauche");
-
   let carrousel__figure = document.querySelector(".carrousel__figure");
-  //   let galerie = document.querySelector(".galerie");
+  let carrousel__form = document.querySelector(".carrousel__form");
+
   let galerie__img = document.querySelectorAll(".galerie img");
-  console.log(galerie__img);
 
   //----------FONCTION----------//
   function peuplerCarrousel() {
@@ -18,6 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
       img.src = elm.src; //donne la source de l'element à l'image
       img.classList.add("carrousel__img");
       carrousel__figure.appendChild(img);
+
+      let radioButton = document.createElement("input");
+      radioButton.type = "radio";
+      radioButton.classList.add("carrousel__form_radioButton");
+      carrousel__form.appendChild(radioButton);
+
+      radioButton.addEventListener("click", () => {
+        let index = Array.from(carrousel__form.children).indexOf(radioButton);
+        carrousel__afficheImage(index);
+      });
     }
   }
 
@@ -71,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       carrousel__afficheImage(n);
       carrousel.classList.add("carrousel--ouvrir");
-      console.log("Image de la galerie cliquée :" + n);
     });
   });
 

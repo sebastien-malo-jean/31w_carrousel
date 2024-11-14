@@ -55,4 +55,12 @@
 
 .carrousel__img--visible {
   opacity: 1;
+}
+
+.carrousel__form {
+  position: absolute;
+  bottom: -16px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
