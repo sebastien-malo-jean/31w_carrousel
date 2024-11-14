@@ -84,13 +84,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //addEventListener sur les boutons du carrousel
-  carrousel__x.addEventListener("click", () => {
-    carrousel.classList.remove("carrousel--ouvrir");
-  });
-  carrousel__droite.addEventListener("click", () => {
-    carrousel__imageSuivante();
-  });
-  carrousel__gauche.addEventListener("click", () => {
-    carrousel__imagePrecedente();
-  });
+  if (carrousel__x && carrousel__droite && carrousel__gauche) {
+    carrousel__x.addEventListener("click", () => {
+      carrousel.classList.remove("carrousel--ouvrir");
+    });
+    carrousel__droite.addEventListener("click", () => {
+      carrousel__imageSuivante();
+    });
+    carrousel__gauche.addEventListener("click", () => {
+      carrousel__imagePrecedente();
+    });
+  }
 });
