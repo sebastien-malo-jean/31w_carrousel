@@ -1,10 +1,10 @@
 .carrousel {
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  top: 25vh;
-  left: 25vw;
-  width: 50vw;
-  height: 50vw;
+  top: 15vh;
+  left: 20vw;
+  width: 60vw;
+  height: 40vw;
   transform: scale(0);
   transition: transform 0.05s ease;
   z-index: 2;
@@ -63,4 +63,13 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.carrousel__form_radioButton {
+  scale: 1.5;
+}
+
+.selected {
+  background-color: black;
+  color: white;
 }

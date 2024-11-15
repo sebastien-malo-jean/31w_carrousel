@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let galerie__img = document.querySelectorAll(".galerie img");
 
   //----------FONCTION----------//
+  let radioButtons = [];
   function peuplerCarrousel() {
-    for (elm of galerie__img) {
+    galerie__img.forEach((elm, index) => {
       let img = document.createElement("img");
       img.src = elm.src; //donne la source de l'element à l'image
       img.classList.add("carrousel__img");
@@ -20,14 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let radioButton = document.createElement("input");
       radioButton.type = "radio";
+      radioButton.name = "carrousel__form_radioButton";
       radioButton.classList.add("carrousel__form_radioButton");
       carrousel__form.appendChild(radioButton);
 
+      radioButtons.push(radioButton);
+
       radioButton.addEventListener("click", () => {
-        let index = Array.from(carrousel__form.children).indexOf(radioButton);
         carrousel__afficheImage(index);
       });
-    }
+    });
   }
 
   function carrousel__trouvePosition() {
@@ -49,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
       carrousel__img[i].classList.remove("carrousel__img--visible");
     }
     carrousel__img[index].classList.add("carrousel__img--visible");
+
+    radioButtons.forEach((btn, i) => (btn.checked = i === index));
   }
 
   function carrousel__imageSuivante() {
